@@ -32,7 +32,7 @@ describe "Basic Android Test" do
     end
 
     describe "when I open the app" do
-        it "should have an option for adding a new note" do
+        it "should be able to navigate to the Action Bar" do
             list_el = @driver.find_element :accessibility_id, "App"
             list_el.click
             texts = @driver.find_elements :class_name, "android.widget.TextView"
