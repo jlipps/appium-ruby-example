@@ -24,11 +24,12 @@ describe "Basic Android Test" do
     end
 
     before do
-        @driver = Appium::Driver.new(caps).start_driver
+        @driver = Appium::Driver.new(caps)
+        @driver.start_driver
     end
 
     after do
-        @driver.quit rescue nil
+        @driver.driver_quit
     end
 
     describe "when I open the app" do

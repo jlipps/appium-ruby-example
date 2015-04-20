@@ -18,12 +18,13 @@ describe "Basic iOS Test" do
     end
 
     before do
-        @driver = Appium::Driver.new(caps).start_driver
+        @driver = Appium::Driver.new(caps)
+        @driver.start_driver
     end
 
     after do
-        session_id = @driver.send(:bridge).session_id
-        @driver.quit rescue nil
+        session_id = @driver.driver.send(:bridge).session_id
+        @driver.driver_quit
         unless passed?
             puts "Failed test link: https://saucelabs.com/tests/#{session_id}"
         end
