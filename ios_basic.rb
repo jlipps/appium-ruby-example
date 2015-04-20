@@ -3,8 +3,8 @@ require "appium_lib"
 require "minitest/autorun"
 
 describe "Basic iOS Test" do
-    def caps (local=false)
-        basic_caps = {
+    def caps
+        {
             caps: {
                 appiumVersion: "1.3.7",
                 platformName: "iOS",
@@ -14,13 +14,6 @@ describe "Basic iOS Test" do
                 name: "Basic iOS Native Test",
             }
         }
-        if local
-            basic_caps[:appium_lib] = {
-                sauce_username: "",
-                sauce_access_key: ""
-            }
-        end
-        basic_caps
     end
 
     before do

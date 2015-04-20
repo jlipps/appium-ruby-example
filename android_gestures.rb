@@ -34,7 +34,6 @@ describe "Basic Android Test" do
 
     describe "when I go to the drag and drop view" do
         it "should be able to drag one dot onto another" do
-            # first get to the right activity
             start_el = @driver.find_element :id, "io.appium.android.apis:id/drag_dot_3"
             end_el = @driver.find_element :id, "io.appium.android.apis:id/drag_dot_2"
 
