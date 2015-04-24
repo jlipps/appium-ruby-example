@@ -23,7 +23,7 @@ describe "Basic iOS Test" do
     end
 
     after do
-        session_id = @driver.driver.send(:bridge).session_id
+        session_id = @driver.session_id
         @driver.driver_quit
         unless passed?
             puts "Failed test link: https://saucelabs.com/tests/#{session_id}"
@@ -46,9 +46,7 @@ describe "Basic iOS Test" do
             search.send_keys :enter
 
             # allow the page to load
-            sleep 1.0
-
-            assert_equal "sauce labs", @webdriver.title[0..9]
+            wait { assert_equal "sauce labs", @webdriver.title[0..9] }
 
             @driver.switch_to_default_context
         end

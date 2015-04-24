@@ -38,13 +38,10 @@ describe "Basic Android Test" do
             end_el = @driver.find_element :id, "io.appium.android.apis:id/drag_dot_2"
 
             dnd = Appium::TouchAction.new
-            dnd.long_press({element: start_el}).move_to({element: end_el}).release()
-            @driver.touch_actions dnd.actions
+            dnd.long_press(element: start_el).move_to(element: end_el).release.perform
 
-            sleep 0.5
-
-            text = @driver.find_element(:id, "io.appium.android.apis:id/drag_result_text").text
-            assert_equal text, "Dropped!"
+            wait { assert_equal "Dropped!",
+                   @driver.find_element(:id, "io.appium.android.apis:id/drag_result_text").text }
         end
     end
 end

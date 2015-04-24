@@ -23,7 +23,7 @@ describe "Basic iOS Test" do
     end
 
     after do
-        session_id = @driver.driver.send(:bridge).session_id
+        session_id = @driver.session_id
         @driver.driver_quit
         unless passed?
             puts "Failed test link: https://saucelabs.com/tests/#{session_id}"
